@@ -1,0 +1,187 @@
+<app-navbar></app-navbar>
+
+
+
+
+<div class="bootstap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img src="../../assets/logo.png" alt="">
+                </div>
+                <h1 class="text-center">Connection For Electricity </h1>
+
+              
+                <form (ngSubmit)="onSubmit()" novalidate>
+
+                       <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Consumer Number</mat-label>
+                        <input type="number" id="consumerNumber" [(ngModel)]="connection.consumerNumber" name="consumerNumber" required #consumerNumber="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!consumerNumber?.valid && (consumerNumber?.dirty || consumerNumber?.touched)" class="error">
+                        <div *ngIf="consumerNumber.errors?.['required']">
+                            Consumer Number is Required.
+                        </div>
+                    </div>
+
+
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Flat Or House Number</mat-label>
+                        <input type="number" id="flatOrHouseNumber" [(ngModel)]="connection.flatOrHouseNumber" name="flatOrHouseNumber" required
+                            #flatOrHouseNumber="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!flatOrHouseNumber?.valid && (flatOrHouseNumber?.dirty || flatOrHouseNumber?.touched)" class="error">
+                        <div *ngIf="flatOrHouseNumber.errors?.['required']">
+                            Number is Required.
+                        </div>
+                       
+                    </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Building Name</mat-label>
+                        <input type="text" id="buildingName" [(ngModel)]="connection.buildingName" name="buildingName"  #buildingName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                   
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Lankmark</mat-label>
+                        <input type="text" id="landmark" [(ngModel)]="connection.landmark" name="landmark" required
+                           #landmark="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!landmark?.valid && (landmark?.dirty || landmark?.touched)" class="error">
+                        <div *ngIf="landmark.errors?.['required']">
+                            Landmark is Required.
+                        </div>
+                     </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Village Name</mat-label>
+                        <input type="text" id="villageName" [(ngModel)]="connection.villageName" name="villageName" required 
+                            #villageName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!villageName?.valid && (villageName?.dirty || villageName?.touched)" class="error">
+                        <div *ngIf="villageName.errors?.['required']">
+                            Village Name is Required.
+                        </div>
+                        </div> 
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Taluka</mat-label>
+                        <input type="text" id="taluka" [(ngModel)]="connection.taluka" name="taluka" required 
+                            #taluka="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!taluka?.valid && (taluka?.dirty || taluka?.touched)" class="error">
+                        <div *ngIf="taluka.errors?.['required']">
+                            Taluka is Required.
+                        </div>
+                       </div>
+
+                       <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>District Name</mat-label>
+                        <input type="text" id="districtName" [(ngModel)]="connection.districtName" name="districtName" required 
+                            #districtName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!districtName?.valid && (districtName?.dirty || districtName?.touched)" class="error">
+                        <div *ngIf="districtName.errors?.['required']">
+                            District Name is Required.
+                        </div>
+                       </div>
+
+                       <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>State</mat-label>
+                        <input type="text" id="state" [(ngModel)]="connection.state" name="state" required 
+                            #state="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!state?.valid && (state?.dirty || state?.touched)" class="error">
+                        <div *ngIf="state.errors?.['required']">
+                            Email is Required.
+                        </div>
+                       </div>
+
+                       
+                       <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Pincode</mat-label>
+                        <input type="number" id="pincode" [(ngModel)]="connection.pincode" name="pincode" required 
+                            #pincode="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!pincode?.valid && (pincode?.dirty || pincode?.touched)" class="error">
+                        <div *ngIf="pincode.errors?.['required']">
+                            Email is Required.
+                        </div>
+                       </div>
+
+                     
+                       <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Connection Type</mat-label>
+                        <mat-select [(value)]="selected" id="connectionType" [(ngModel)]="connection.connectionType" name="connectionType" required  #connectionType="ngModel"  matInput >
+                          
+                          <mat-option value="NON_INDUSTRIAL">NON_INDUSTRIAL</mat-option>
+                          <mat-option value="INDUSTRIAL">INDUSTRIAL</mat-option>
+                          <mat-option value="AGRICULTURAL">AGRICULTURAL</mat-option>
+                          
+                        </mat-select>
+                      </mat-form-field>
+                      <p>You selected: {{selected}}</p>
+
+                      <!-- <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Application Date</mat-label>
+                        <input type="date" id="applicationDate" [(ngModel)]="connection.applicationDate" name="applicationDate" required 
+                            #applicationDate="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!applicationDate?.valid && (applicationDate?.dirty || applicationDate?.touched)" class="error">
+                        <div *ngIf="applicationDate.errors?.['required']">
+                            Application Date is Required.
+                        </div>
+                       </div> -->
+
+                       
+                    <div>Application Date</div>
+                    <div><input type="date" name="applicationDate" [(ngModel)]="connection.applicationDate" required #applicationDate="ngModel" class="form-control"
+                        [ngClass]="{'is-invalid': applicationDate.errors && (applicationDate.touched || applicationDate.dirty), 'is-valid': applicationDate.valid}" />
+                        <div class="invalid-feedback">
+                            <strong *ngIf="applicationDate.errors?.['required']">Application Date is required</strong>                                       
+                             </div>
+                        </div>
+
+
+                       <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Connection Date</mat-label>
+                        <input type="date" id="connectionDate" [(ngModel)]="connection.connectionDate" name="connectionDate" required 
+                            #connectionDate="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!connectionDate?.valid && (connectionDate?.dirty || connectionDate?.touched)" class="error">
+                        <div *ngIf="connectionDate.errors?.['required']">
+                            Connection Date is Required.
+                        </div>
+                       </div>
+
+                       
+                       <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Connection Status</mat-label>
+                        <mat-select [(value)]="selected1" id="connectionStatus" [(ngModel)]="connection.connectionStatus" name="connectionStatus" required  #connectionStatus="ngModel"  matInput >
+                          
+                          <mat-option value="active">active</mat-option>
+                          <mat-option value="inactive">inactive</mat-option>
+                         
+                        </mat-select>
+                      </mat-form-field>
+                      <p>You selected: {{selected1}}</p>
+
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Submit</button>
+                        <button class="margin" mat-raised-button color="accent">Reset</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

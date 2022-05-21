@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="bootstap-wrapper">
+<div class="container">
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-6 offset-md-3">
+            <div class="container text-center">
+                <img src="../../assets/logo.png" alt="">
+            </div>
+            <h1 class="text-center">Rgister Here !!</h1>
+
+            <!-- {{user | json}} -->
+            <form (ngSubmit)="onSubmit()" novalidate>
+
+                <mat-form-field class="full-width" appearance="outline">
+                    
+                    <mat-label>User Name</mat-label>
+                    <input type="text" id="userName" [(ngModel)]="user.userName" name="userName" required minlength="3" #userName="ngModel"  matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)" class="error">
+                        <div *ngIf="userName.errors?.['required']" >
+                        User Name is Required.
+                        </div> 
+                        <div *ngIf="userName.errors?.['minlength']">
+                            User Name Minimum Length is {{userName.errors?.['minlength']?.requiredLength}}.
+                            </div>
+                        </div>
+                                            
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Role</mat-label>
+                            <mat-select [(value)]="selected"  id="role" [(ngModel)]="user.role" name="role" required  #role="ngModel"  matInput placeholder="Enter Here">
+                              <mat-option>None</mat-option>
+                              <mat-option value="ADMIN">ADMIN</mat-option>
+                              <mat-option value="CUSTOMER">CUSTOMER</mat-option>
+                              
+                            </mat-select>
+                          </mat-form-field>
+                          <p>You selected: {{selected}}</p>
+                    
+            
+                            <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                    <input type="password" id="password" [(ngModel)]="user.password" name="password" required  #password="ngModel"  matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="error">
+                        <div *ngIf="password.errors?.['required']" >
+                        Password is Required.
+                        </div> 
+                       
+                        </div>
+                
+                   
+                <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary">Register</button>
+                <button class="margin" mat-raised-button color="accent">Reset</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>

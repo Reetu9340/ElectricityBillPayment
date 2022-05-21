@@ -1,0 +1,20 @@
+<app-customer-navbar></app-customer-navbar>
+<mat-card>
+<h2>User Details</h2> 
+
+<hr/>
+<div *ngIf="user">
+  <div>
+    <label><b>User Name: </b></label> {{user.userName}}
+  </div>
+  <div>
+    <label><b>Password: </b></label> {{user.password}}
+  </div>
+  <div>
+    <label><b>Role: </b></label> {{user.role}}
+  </div>  
+</div>
+<p></p>
+<button (click)="list()" class="btn btn-primary">Back List</button>
+</mat-card>
+

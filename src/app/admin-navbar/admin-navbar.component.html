@@ -1,0 +1,45 @@
+<p>admin-navbar works!</p>
+<mat-toolbar color="accent">
+    <a routerLink="/">
+  
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <span>Electricity Bill Payment </span>
+    </a>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">User</button>
+    <mat-menu #menu="matMenu">
+      <a routerLink="/create-electricity-bill" mat-menu-item> Add New User</a>
+      <a routerLink="/users" mat-menu-item>Users</a>
+      <a routerLink="/customer-list" mat-menu-item>User Details</a>
+    </mat-menu>
+
+
+
+  
+    <button mat-button [matMenuTriggerFor]="menu">Customer</button>
+    <mat-menu #menu="matMenu">
+      <a routerLink="/customer-list" mat-menu-item> Add New Customer</a>
+      <a routerLink="/customer-list" mat-menu-item>Customer Details</a>
+      <a routerLink="/customer-list" mat-menu-item>Update Customer Details</a>
+    </mat-menu>
+
+    
+
+
+    
+    <button mat-button [matMenuTriggerFor]="menu">Bill</button>
+    <mat-menu #menu="matMenu">
+      <a routerLink="/user-list" mat-menu-item> Update Bill</a>
+      <a routerLink="/update-user" mat-menu-item> Bill Details</a>
+    </mat-menu>
+
+   
+
+    <a routerLink="/customer" mat-icon-button class="example-icon favorite-icon " class="marginright"
+      aria-label="Example icon-button with heart icon">
+      Logout
+    </a>
+  </mat-toolbar>

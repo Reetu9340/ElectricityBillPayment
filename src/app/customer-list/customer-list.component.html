@@ -1,0 +1,45 @@
+<app-customer-navbar></app-customer-navbar>
+<mat-card>
+<div class="panel panel-primary">
+    <div class="panel-heading  text-center" >
+      <h1>Customer List</h1>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Addhar Number</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+
+        <tbody>   		<!-- in below line async pipe creates a subscription if the source is an Observable -->
+            <tr *ngFor="let customer of customers | async">  
+              <td>{{customer.addharNumber}}</td>
+              <td>{{customer.firstName}}</td>
+              <td>{{customer.middleName}}</td>
+              <td>{{customer.lastName}}</td>
+              <td>{{customer.mobileNumber}}</td>
+              <td>{{customer.email}}</td>
+              <td>{{customer.gender}}</td>
+             
+              <td>
+                <!-- <button (click)="deleteCustomer(customer.userId)" class="btn btn-danger">Delete</button>-->
+                <button (click)="updateCustomer(customer.customerId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="customerDetails(customer.customerId)" class="btn btn-info" style="margin-left: 10px">Details</button> 
+            </td> 
+            </tr>
+          </tbody>
+
+
+        </table>
+
+        </div>
+        </div>
+        </mat-card>
+        

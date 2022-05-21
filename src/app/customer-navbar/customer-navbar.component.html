@@ -1,0 +1,30 @@
+<mat-toolbar color="accent">
+  <a routerLink="/">
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>Electricity Bill Payment </span>
+  </a>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">Information</button>
+  <mat-menu #menu="matMenu">
+    <a routerLink="/users" mat-menu-item> View Users</a>
+    <a routerLink="/customer-list" mat-menu-item> View Customers</a>
+    <a routerLink="/connection-list" mat-menu-item> View Connection</a>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="menu">Bill</button>
+  <mat-menu #menu="matMenu">
+    <a routerLink="/user-list" mat-menu-item> Pay Bill</a>
+    <a routerLink="/update-user" mat-menu-item> Bill Details</a>
+  </mat-menu>
+  <a routerLink="/customer" mat-icon-button class="example-icon favorite-icon " class="marginright"
+    aria-label="Example icon-button with heart icon">
+    Report
+  </a>
+  <a routerLink="/customer" mat-icon-button class="example-icon favorite-icon " class="marginright"
+    aria-label="Example icon-button with heart icon">
+    Logout
+  </a>
+</mat-toolbar>

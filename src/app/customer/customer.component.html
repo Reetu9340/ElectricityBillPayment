@@ -1,0 +1,115 @@
+<p>customer works!</p>
+<app-navbar></app-navbar>
+<div class="bootstap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img src="../../assets/logo.png" alt="">
+                </div>
+                <h1 class="text-center">Customer Registration !!</h1>
+
+                {{customer | json}}
+                <form (ngSubmit)="onSubmit()" novalidate>
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Addhar Number</mat-label>
+                        <input type="number" id="addharNumber" [(ngModel)]="customer.addharNumber" name="addharNumber" required maxlength="16" #addharNumber="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!addharNumber?.valid && (addharNumber?.dirty || addharNumber?.touched)" class="error">
+                        <div *ngIf="addharNumber.errors?.['required']">
+                            Addhar Number is Required.
+                        </div>
+                        <div *ngIf="addharNumber.errors?.['maxlength']">
+                            User Name Minimum Length is {{addharNumber.errors?.['maxlength']?.requiredLength}}.
+                        </div>
+                    </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>First Name</mat-label>
+                        <input type="text" id="firstName" [(ngModel)]="customer.firstName" name="firstName" required
+                            minlength="3" #firstName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)" class="error">
+                        <div *ngIf="firstName.errors?.['required']">
+                            First Name is Required.
+                        </div>
+                        <div *ngIf="firstName.errors?.['minlength']">
+                            User Name Minimum Length is {{firstName.errors?.['minlength']?.requiredLength}}.
+                        </div>
+                    </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Middle Name</mat-label>
+                        <input type="text" id="middleName" [(ngModel)]="customer.middleName" name="middleName"  #middleName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                   
+
+                    <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" id="lastName" [(ngModel)]="customer.lastName" name="lastName" required
+                            minlength="3" #lastName="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched)" class="error">
+                        <div *ngIf="lastName.errors?.['required']">
+                            Last Name is Required.
+                        </div>
+                        <div *ngIf="lastName.errors?.['minlength']">
+                            Last Name Minimum Length is {{lastName.errors?.['minlength']?.requiredLength}}.
+                        </div>
+                    </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input type="number" id="mobileNumber" [(ngModel)]="customer.mobileNumber" name="mobileNumber" required maxlength="10"
+                            #mobileNumber="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!mobileNumber?.valid && (mobileNumber?.dirty || mobileNumber?.touched)" class="error">
+                        <div *ngIf="mobileNumber.errors?.['required']">
+                            Mobile Number is Required.
+                        </div>
+                        <div *ngIf="mobileNumber.errors?.['maxlength']">
+                            Mobile Number Minimum Length is {{mobileNumber.errors?.['maxlength']?.requiredLength}}.
+                        </div>
+                    </div> 
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" id="email" [(ngModel)]="customer.email" name="email" required 
+                            #email="ngModel" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                        <div *ngIf="email.errors?.['required']">
+                            Email is Required.
+                        </div>
+                       </div>
+
+                       <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Gender</mat-label>
+                        <mat-select [(value)]="selected" id="gender" [(ngModel)]="customer.gender" name="gender" required  #gender="ngModel"  matInput >
+                          
+                          <mat-option value="male">Male</mat-option>
+                          <mat-option value="female">Female</mat-option>
+                          <mat-option value="others">Other</mat-option>
+                          
+                        </mat-select>
+                      </mat-form-field>
+                      <p>You selected: {{selected}}</p>
+                     
+
+                    
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Register</button>
+                        <button class="margin" mat-raised-button color="accent">Reset</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

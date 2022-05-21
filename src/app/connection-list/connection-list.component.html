@@ -1,0 +1,58 @@
+<p>connection-list works!</p>
+<app-customer-navbar></app-customer-navbar>
+<mat-card>
+<div class="panel panel-primary">
+    <div class="panel-heading  text-center" >
+      <h1>Connection List</h1>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Consumer Number</th>
+            <th>Flat Or House Number</th>
+            <th>Building Name</th>
+            <th>Lankmark</th>
+            <th>Village Name</th>
+            <th>Taluka</th>
+            <th>District Name</th>
+            <th>State</th>
+            <th>Connection Type</th>
+            <th>Application Date</th>
+            <th>Connection Date</th>
+            <th>Status</th>
+            
+          </tr>
+        </thead>
+
+        <tbody>   		<!-- in below line async pipe creates a subscription if the source is an Observable -->
+            <tr *ngFor="let connection of connections | async">  
+              <td>{{connection.connectionId}}</td>
+              <td>{{connection.consumerNumber}}</td>
+              <td>{{connection.flatOrHouseNumber}}</td>
+              <td>{{connection.buildingName}}</td>
+              <td>{{connection.landmark}}</td>
+              <td>{{connection.villageName}}</td>
+              <td>{{connection.districtName}}</td>
+              <td>{{connection.state}}</td>
+              <td>{{connection.pincode}}</td>
+              <td>{{connection.connectionType}}</td>
+              <td>{{connection.applicationDate}}</td>
+              <td>{{connection.connectionDate}}</td>
+              <td>{{connection.connectionStatus}}</td>
+             <td>
+                <!-- <button (click)="deleteCustomer(customer.userId)" class="btn btn-danger">Delete</button>-->
+                <!-- <button (click)="updateCustomer(customer.customerId)" class="btn btn-info" style="margin-left: 10px">Update</button> -->
+                <!-- <button (click)="customerDetails(customer.customerId)" class="btn btn-info" style="margin-left: 10px">Details</button>  -->
+            <!-- </td>  -->
+            </tr>
+          </tbody>
+
+
+        </table>
+
+        </div>
+        </div>
+        </mat-card>
+        
